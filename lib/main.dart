@@ -1,4 +1,6 @@
 import 'package:blood_bank_app/home.dart';
+import 'package:blood_bank_app/registration.dart';
+import 'package:blood_bank_app/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,13 +13,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Blood Bank',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const Home(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Registration(),
     );
   }
 }
