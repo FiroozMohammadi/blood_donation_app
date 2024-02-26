@@ -1,5 +1,3 @@
-import 'package:blood_bank_app/home.dart';
-import 'package:blood_bank_app/registration.dart';
 import 'package:blood_bank_app/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Registration(),
+      home: SplashScreen(),
     );
   }
 }

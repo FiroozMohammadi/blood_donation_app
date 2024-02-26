@@ -1,4 +1,5 @@
 import 'package:blood_bank_app/myWidgets.dart';
+import 'package:blood_bank_app/registration.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -13,10 +14,18 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.bloodtype,
-              size: 110,
-              color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Registration()));
+              },
+              child: const Icon(
+                Icons.bloodtype,
+                size: 110,
+                color: Colors.white,
+              ),
             ),
             const SizedBox(
               height: 30,

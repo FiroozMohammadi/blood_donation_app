@@ -51,35 +51,38 @@ class _RegistrationState extends State<Registration> {
                         topRight: Radius.circular(25)),
                   ),
                   child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const SizedBox(
-                          height: 30,
-                        ),
-                        titleText("نام"),
-                        myTextField(TextInputType.text, name),
-                        titleText("تخلص"),
-                        myTextField(TextInputType.text, lastname),
-                        titleText("سن"),
-                        myTextField(TextInputType.number, age),
-                        titleText("ولایت"),
-                        ComboBoxWidget(
-                          dataList: cityList,
-                        ),
-                        titleText("شماره تماس"),
-                        myTextField(TextInputType.number, phone),
-                        titleText("گروپ خون"),
-                        ComboBoxWidget(dataList: BloodGroupList),
-                        myButton("ثبت", 50, Colors.white,
-                            const Color.fromARGB(255, 182, 19, 8), () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Home()));
-                        })
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          titleText("نام"),
+                          myTextField(TextInputType.text, name),
+                          titleText("تخلص"),
+                          myTextField(TextInputType.text, lastname),
+                          titleText("سن"),
+                          myTextField(TextInputType.number, age),
+                          titleText("ولایت"),
+                          ComboBoxWidget(
+                            dataList: cityList,
+                          ),
+                          titleText("شماره تماس"),
+                          myTextField(TextInputType.number, phone),
+                          titleText("گروپ خون"),
+                          ComboBoxWidget(dataList: BloodGroupList),
+                          myButton("ثبت", 50, Colors.white,
+                              const Color.fromARGB(255, 182, 19, 8), () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Home()));
+                          })
+                        ],
+                      ),
                     ),
                   ),
                 ),

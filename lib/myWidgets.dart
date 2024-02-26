@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+Color myColor = const Color.fromARGB(255, 182, 19, 8);
+
 Padding myTextField(TextInputType tInput, TextEditingController userControl) {
   return Padding(
     padding: const EdgeInsets.fromLTRB(
-      20,
+      15,
       0,
-      20,
+      15,
       7,
     ),
     child: TextField(
@@ -61,7 +63,7 @@ class _ComboBoxWidgetState extends State<ComboBoxWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 7),
+      padding: const EdgeInsets.fromLTRB(15, 0, 15, 7),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),
         width: MediaQuery.of(context).size.width,
@@ -142,7 +144,7 @@ Padding myRichText(String pText, cText) {
 
 Padding titleText(String name) {
   return Padding(
-    padding: const EdgeInsets.fromLTRB(20, 0, 25, 5),
+    padding: const EdgeInsets.fromLTRB(20, 0, 20, 5),
     child: Align(
       alignment: Alignment.centerRight,
       child: Text(
@@ -186,5 +188,100 @@ Text myText(String name) {
     name,
     style: const TextStyle(
         fontSize: 28, color: Colors.white, fontWeight: FontWeight.bold),
+  );
+}
+
+class CustomAlertDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: AlertDialog(
+        contentPadding: const EdgeInsets.fromLTRB(15, 8, 15, 12),
+        contentTextStyle:
+            const TextStyle(color: Color.fromARGB(255, 2, 49, 87)),
+        title: const Center(
+          child: Text("مشخصات خون دهنده"),
+        ),
+        titleTextStyle: const TextStyle(
+            fontWeight: FontWeight.w700,
+            color: Color.fromARGB(255, 2, 49, 87),
+            fontSize: 18),
+        content: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconWithText("فیروز احمد محمدی", Icons.person_2),
+            IconWithText("هرات", Icons.location_city),
+            IconWithText("+ AB", Icons.bloodtype),
+            IconWithText("۲۳ cc", Icons.water_drop_sharp),
+            IconWithText("۰۷۹۷۶۰۹۸۳۶", Icons.phone_android_sharp),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                OutlinedButton(
+                  child: const Text(
+                    'درخواست',
+                    style: TextStyle(color: Color.fromARGB(255, 2, 49, 87)),
+                  ),
+                  onPressed: () {
+                    // Perform action when Button 2 is pressed
+                  },
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                OutlinedButton(
+                  child: const Text(
+                    'تماس',
+                    style: TextStyle(color: Color.fromARGB(255, 2, 49, 87)),
+                  ),
+                  onPressed: () {
+                    // Perform action when Button 3 is pressed
+                  },
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                OutlinedButton(
+                  child: const Text(
+                    'انصراف',
+                    style: TextStyle(color: Color.fromARGB(255, 2, 49, 87)),
+                  ),
+                  onPressed: () {
+                    // Add your logic here to open the dialog
+                    // or perform any action you want.
+                    Navigator.of(context).pop(); // Close the dialog
+                  },
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ignore: non_constant_identifier_names
+Widget IconWithText(String text, IconData icon) {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 5),
+    child: Row(
+      children: [
+        Icon(
+          icon,
+          color: const Color.fromARGB(255, 2, 49, 87),
+        ),
+        const SizedBox(
+          width: 8,
+        ),
+        // Add some spacing between the icon and text
+        Text(text),
+      ],
+    ),
   );
 }
