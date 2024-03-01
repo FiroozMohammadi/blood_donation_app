@@ -1,6 +1,10 @@
+import 'package:blood_bank_app/data/data.dart';
+import 'package:blood_bank_app/pages/about.dart';
+import 'package:blood_bank_app/pages/bloodQualification.dart';
+import 'package:blood_bank_app/pages/blood_info.dart';
+import 'package:blood_bank_app/pages/notification.dart';
 import 'package:flutter/material.dart';
-
-import 'myWidgets.dart';
+import 'widgets/myWidgets.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,17 +14,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<String> groupList = [
-    '+ A',
-    '- A',
-    '+ B',
-    '- B',
-    '+ AB',
-    '- AB',
-    '+ O',
-    '- O'
-  ];
-  final List<String> cityList = ['هرات', 'کابل', 'مزار', 'لوگر'];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,7 +27,12 @@ class _HomeState extends State<Home> {
             title: Align(
               alignment: Alignment.centerLeft,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyNotification()));
+                },
                 child: const Badge(
                   backgroundColor: Colors.redAccent,
                   label: Text("6"),
@@ -47,7 +45,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           drawer: Drawer(
-              width: 190,
+              width: 195,
               elevation: 5,
               child: ListView(
                 padding: EdgeInsets.zero,
@@ -67,19 +65,39 @@ class _HomeState extends State<Home> {
                     onTap: () {},
                   ),
                   ListTile(
+                    leading: const Icon(Icons.bloodtype_outlined),
+                    title: const Text('فواید اهدای خون '),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BloodInfo()));
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.bloodtype_outlined),
+                    title: const Text('شرایط اهدای خون'),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Qualifiation()));
+                    },
+                  ),
+                  ListTile(
                     leading: const Icon(Icons.delete_outlined),
                     title: const Text('حذف حساب'),
                     onTap: () {},
                   ),
                   ListTile(
-                    leading: const Icon(Icons.bloodtype_outlined),
-                    title: const Text('فواید خون دادن'),
-                    onTap: () {},
-                  ),
-                  ListTile(
                     leading: const Icon(Icons.info_outline_rounded),
                     title: const Text('درباره ما'),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const About()));
+                    },
                   ),
                   ListTile(
                     leading: const Icon(Icons.logout_sharp),
@@ -112,7 +130,7 @@ class _HomeState extends State<Home> {
                           height: 60,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: groupList.length,
+                            itemCount: bloodGroupList.length,
                             itemBuilder: (context, index) {
                               return Container(
                                 width: 60,
@@ -125,7 +143,7 @@ class _HomeState extends State<Home> {
                                 ),
                                 child: Center(
                                   child: Text(
-                                    groupList[index],
+                                    bloodGroupList[index],
                                     style: const TextStyle(
                                         color: Colors.red,
                                         fontSize: 18,
@@ -152,7 +170,7 @@ class _HomeState extends State<Home> {
                   height: MediaQuery.sizeOf(context).height,
                   child: ListView.builder(
                     scrollDirection: Axis.vertical,
-                    itemCount: groupList.length,
+                    itemCount: bloodGroupList.length,
                     itemBuilder: (context, index) {
                       return ListTile(
                           leading: CircleAvatar(
@@ -160,7 +178,7 @@ class _HomeState extends State<Home> {
                             backgroundColor:
                                 const Color.fromARGB(255, 182, 19, 8),
                             child: Text(
-                              groupList[index],
+                              bloodGroupList[index],
                               style: const TextStyle(color: Colors.white),
                             ),
                           ),

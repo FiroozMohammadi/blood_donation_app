@@ -1,4 +1,4 @@
-import 'package:blood_bank_app/splash.dart';
+import 'package:blood_bank_app/pages/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,5 +1,5 @@
 import 'package:blood_bank_app/home.dart';
-import 'package:blood_bank_app/myWidgets.dart';
+import 'package:blood_bank_app/widgets/myWidgets.dart';
 import 'package:flutter/material.dart';
 
 class Registration extends StatefulWidget {

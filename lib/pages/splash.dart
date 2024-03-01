@@ -1,5 +1,5 @@
-import 'package:blood_bank_app/myWidgets.dart';
-import 'package:blood_bank_app/registration.dart';
+import 'package:blood_bank_app/widgets/myWidgets.dart';
+import 'package:blood_bank_app/pages/registration.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {

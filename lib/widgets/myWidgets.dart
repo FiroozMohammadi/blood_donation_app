@@ -121,24 +121,15 @@ class _ComboBoxWidgetState extends State<ComboBoxWidget> {
   }
 }
 
-Padding myRichText(String pText, cText) {
-  return Padding(
-    padding: const EdgeInsets.all(1),
-    child: RichText(
-      text: TextSpan(
+Widget myContainer(String pText, cText) {
+  return Column(
+    children: [
+      Text(
+        pText,
         style: const TextStyle(
-          fontSize: 18.0,
-          color: Colors.black,
-        ),
-        children: <TextSpan>[
-          TextSpan(text: pText),
-          TextSpan(
-            text: cText,
-            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w200),
-          ),
-        ],
-      ),
-    ),
+            fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+      )
+    ],
   );
 }
 
